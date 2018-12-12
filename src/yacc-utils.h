@@ -21,26 +21,28 @@ void yyerror(char* s);
 /*
 * This is used to accept an action that has been specified
 */
-struct AFH_JSON acceptAction(int n_args, ...) {
+struct AFH_ACTION acceptAction(int n_args, ...) {
     va_list arguments;
 
-    struct AFH_JSON afh_json; // Where we will store all the good stuff.
+    struct AFH_ACTION afh_action; // Where we will store all the good stuff.
 
     va_start(arguments, n_args);
     for (int i = 0; i < n_args; i++) {
         if (i == 0) {
-            strcpy(afh_json.type, va_arg(arguments, char *));
-            afh_json.n_args = 0;
+            strcpy(afh_action.type, va_arg(arguments, char *));
+            afh_action.n_args = 0;
         } else {
-            strcpy(afh_json.args[i-1], va_arg(arguments, char *));
-            afh_json.n_args++;
+            strcpy(afh_action.args[i-1], va_arg(arguments, char *));
+            afh_action.n_args++;
         }
     }
     va_end(arguments);
 
-    print_AFH_JSON(afh_json);
+    print_afh_action(afh_action);
 
-    return afh_json;
+    get_afh_action_json(afh_action);
+
+    return afh_action;
 }
 
 /*
