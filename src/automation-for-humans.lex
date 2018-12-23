@@ -15,7 +15,7 @@ L   [a-zA-Z_]
 %}
 
 %%
-url                         { saveStringToken(); return(URL); }
+open                        { saveStringToken(); return(OPEN); }
 click                       { saveStringToken(); return(CLICK); }
 type                        { saveStringToken(); return(TYPE); }
 wait                        { saveStringToken(); return(WAIT); }
@@ -28,5 +28,6 @@ for                         { saveStringToken(); return(FOR); }
 \"(\\.|[^\\"])*\"           { saveStringToken(); return(STRING_LITERAL); }
 D+                          { saveStringToken(); return(INTEGER_CONSTANT); }
 [ \t\v\n\f]                 { /* ignore whitespace */ }
+<<EOF>>                     { static int eof_detected = 0; return eof_detected++ ? 0 : END_OF_FILE; }
 .                           {  /* ignore bad characters */ }
 %%

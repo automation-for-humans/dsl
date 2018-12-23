@@ -1,5 +1,8 @@
-#include <stdlib.h>
-#include <string.h>
+#include <cstdlib>
+#include <cstring>
+#include <string>
+
+using namespace std;
 
 /*
 * Utilities used in the lex.
@@ -7,8 +10,8 @@
 
 /*
 * NOTE: The fields used for "yylval" like :
-*   yylval.sval
-*   yylval.ival
+*   yylval.stringValue
+*   yylval.integerValue
 * etc. are defined in the YACC file along with the grammar.
 * TODO: Can we externalise it from the YACC file.
 */
@@ -17,7 +20,7 @@
 * Saves a String token so that it can be used by the parser.
 */
 void saveStringToken() {
-    char *result = (char*) malloc(strlen(yytext) + 1);
+    char *result = new char[strlen(yytext)+1];
     strcpy(result, yytext);
 
     yylval.stringValue = result;

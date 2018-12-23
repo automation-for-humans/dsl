@@ -1,7 +1,12 @@
-#include <stdlib.h>
-#include <string.h>
-#include <stdarg.h>
-#include <stdio.h>
+#include <cstdlib>
+#include <cstring>
+#include <cstdarg>
+#include <cstdio>
+#include <string>
+#include <json.hpp>
+
+using namespace std;
+using json = nlohmann::json;
 
 #include "afh-utils.h"
 
@@ -21,26 +26,22 @@ void yyerror(char* s);
 /*
 * This is used to accept an action that has been specified
 */
-struct AFH_ACTION acceptAction(int n_args, ...) {
+struct AFH_ACTION* acceptAction(int n_args, ...) {
     va_list arguments;
 
-    struct AFH_ACTION afh_action; // Where we will store all the good stuff.
+    struct AFH_ACTION* afh_action = new struct AFH_ACTION; // Where we will store all the good stuff.
 
     va_start(arguments, n_args);
     for (int i = 0; i < n_args; i++) {
         if (i == 0) {
-            strcpy(afh_action.type, va_arg(arguments, char *));
-            afh_action.n_args = 0;
+            afh_action->type.assign(va_arg(arguments, char *));
+            afh_action->n_args = 0;
         } else {
-            strcpy(afh_action.args[i-1], va_arg(arguments, char *));
-            afh_action.n_args++;
+            afh_action->args[i-1].assign(va_arg(arguments, char *));
+            afh_action->n_args++;
         }
     }
     va_end(arguments);
-
-    print_afh_action(afh_action);
-
-    get_afh_action_json(afh_action);
 
     return afh_action;
 }
@@ -58,12 +59,13 @@ int main(int argc, char** argv) {
     /* Ask lex to read from this file than STDIN */
     yyin = myfile;
 
+    /* Redirecting stdout to FILE */
+    freopen(argv[2], "w", stdout);
+
     /* parse through the input until there is no more */
     do {
         yyparse();
     } while (!feof(yyin));
-
-    printf("[SUCCESS] Pasring of %s done!\n", argv[1]);
 
     return 0;
 }
