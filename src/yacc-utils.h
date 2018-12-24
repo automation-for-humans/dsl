@@ -53,7 +53,7 @@ int main(int argc, char** argv) {
     FILE *myfile = fopen(argv[1], "r");
 
     if (!myfile) {
-        printf("Couldn't open file : %s\n", argv[1]);
+        cerr<<"Couldn't open file : "<<argv[1]<<endl;
         return -1;
     }
     /* Ask lex to read from this file than STDIN */
@@ -71,7 +71,7 @@ int main(int argc, char** argv) {
 }
 
 void yyerror(char *s) {
-    printf("EEK, parse error!  Message: %s\n", s);
+    cerr<<"EEK, parse error!  Message: "    <<s<<endl;
 
     /*
     * Halt as soon as we get a parse error.

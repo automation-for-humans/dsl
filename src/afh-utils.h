@@ -25,9 +25,9 @@ struct AFH_ACTION_LIST {
 * Utility function to print the AFH_ACTION struct
 */
 void print_afh_action(struct AFH_ACTION* s) {
-    cout<<"[TYPE] : "<<s->type<<"\n";
+    cout<<"[TYPE] : "<<s->type<<endl;
     for (int i = 0; i < s->n_args; i++) {
-        cout<<"[ARGUMENT] "<<i<<" : "<<s->args[i]<<"\n";
+        cout<<"[ARGUMENT] "<<i<<" : "<<s->args[i]<<endl;
     }
 }
 
