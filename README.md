@@ -9,7 +9,7 @@ make all
 
 To parse an input file say, `sample-inputs/public-sites/github-nav-demo.txt`, type :
 ```bash
-make src=sample-inputs/public-sites/github-nav-demo.txt dest=sample-inputs/public-sites/github-nav-demo.json
+make validate src=sample-inputs/public-sites/github-nav-demo.txt dest=sample-inputs/public-sites/github-nav-demo.json
 ```
 
 [automation-for-humans]: https://github.com/intuit/automation-for-humans
