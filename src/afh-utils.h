@@ -52,12 +52,48 @@ struct AFH_ACTION_LIST* add_to_action_list(AFH_ACTION_LIST* action_list, struct 
 json convert_action_to_json(struct AFH_ACTION* action) {
     json j;
     j[TYPE] = action->type;
-    j[ARGS] = json::array();
+    j[ARGS] = json::object();
+
     for (int i = 0; i < action->n_args; i++) {
         /*
-        * Here we ave to do this hack to remove the quotes from the string.
+        * Here we have to do this hack to remove the quotes from the string.
         */
-        j[ARGS].push_back(std::regex_replace(action->args[i], std::regex("\""), ""));
+        action->args[i] = std::regex_replace(action->args[i], std::regex("\""), "");
+
+        if (action->type == CLICK_ACTION || action->type == HOVER_ACTION) {
+            switch(i) {
+                case CLICK_INDEX_INDEX :
+                    j[ARGS][INDEX] = action->args[i];
+                    break;
+                case CLICK_SUBJECT_INDEX :
+                    j[ARGS][SUBJECT] = action->args[i];
+                    break;
+                case CLICK_ATTRIBUTE_INDEX :
+                    j[ARGS][ATTRIBUTE] = action->args[i];
+                    break;
+                default :
+                    break;
+            }
+        } else if (action->type == TYPE_ACTION) {
+            switch(i) {
+                case TYPE_INDEX_INDEX :
+                    j[ARGS][INDEX] = action->args[i];
+                    break;
+                case TYPE_SUBJECT_INDEX :
+                    j[ARGS][SUBJECT] = action->args[i];
+                    break;
+                case TYPE_ATTRIBUTE_INDEX :
+                    j[ARGS][ATTRIBUTE] = action->args[i];
+                    break;
+                case TYPE_USER_INPUT_INDEX :
+                    j[ARGS][USER_INPUT] = action->args[i];
+                    break;
+                default :
+                    break;
+            }
+        } else if (action->type == OPEN_ACTION || action->type == WAIT_ACTION || action->type == EXECJS_ACTION) {
+            j[ARGS][SUBJECT] = action->args[i];
+        }
     }
     return j;
 }
