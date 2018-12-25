@@ -9,58 +9,76 @@
         {
             "args": [
                 "afh-random-user",
-                "Pick a username"
+                "",
+                "Pick a username",
+                ""
             ],
             "type": "type"
         },
         {
             "args": [
                 "afh_random_user@afh.com",
-                "you@example.com"
+                "",
+                "you@example.com",
+                ""
             ],
             "type": "type"
         },
         {
             "args": [
                 "afh_random_password",
-                "Create a password"
+                "",
+                "Create a password",
+                ""
             ],
             "type": "type"
         },
         {
             "args": [
                 "karate",
-                "Search GitHub"
+                "",
+                "Search GitHub",
+                ""
             ],
             "type": "type"
         },
         {
             "args": [
-                "karate"
+                "",
+                "karate",
+                ""
             ],
             "type": "click"
         },
         {
             "args": [
-                "karate"
+                "",
+                "karate",
+                ""
             ],
             "type": "click"
         },
         {
             "args": [
-                "Issues"
+                "2",
+                "Issues",
+                ""
             ],
             "type": "click"
         },
         {
             "args": [
-                "Labels"
+                "",
+                "Labels",
+                ""
             ],
             "type": "click"
         },
         {
             "args": [
-                "bug"
+                "",
+                "bug",
+                ""
             ],
             "type": "click"
         },

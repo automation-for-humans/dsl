@@ -26,8 +26,9 @@ in                          { saveStringToken(); return(IN); }
 for                         { saveStringToken(); return(FOR); }
 
 \"(\\.|[^\\"])*\"           { saveStringToken(); return(STRING_LITERAL); }
-D+                          { saveStringToken(); return(INTEGER_CONSTANT); }
+{D}+                        { saveStringToken(); return(INTEGER_CONSTANT); }
+(st|nd|rd|th)               { saveStringToken(); return(INTEGER_SPECIFIER); }
 [ \t\v\n\f]                 { /* ignore whitespace */ }
 <<EOF>>                     { static int eof_detected = 0; return eof_detected++ ? 0 : END_OF_FILE; }
-.                           {  /* ignore bad characters */ }
+.                           { /* ignore bad characters */ }
 %%

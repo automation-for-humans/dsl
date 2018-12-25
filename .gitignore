@@ -4,4 +4,3 @@ src/y.tab.c**
 src/y.tab.h
 bin/
 examples/
-sample-inputs/**/**.json
