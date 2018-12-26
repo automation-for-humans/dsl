@@ -10,58 +10,6 @@
             "args": {
                 "attribute": "",
                 "index": "",
-                "input": "afh-random-user",
-                "subject": "Pick a username"
-            },
-            "type": "type"
-        },
-        {
-            "args": {
-                "attribute": "",
-                "index": "",
-                "input": "afh_random_user@afh.com",
-                "subject": "you@example.com"
-            },
-            "type": "type"
-        },
-        {
-            "args": {
-                "attribute": "",
-                "index": "",
-                "input": "afh_random_password",
-                "subject": "Create a password"
-            },
-            "type": "type"
-        },
-        {
-            "args": {
-                "attribute": "",
-                "index": "",
-                "input": "karate",
-                "subject": "Search GitHub"
-            },
-            "type": "type"
-        },
-        {
-            "args": {
-                "attribute": "",
-                "index": "",
-                "subject": "karate"
-            },
-            "type": "click"
-        },
-        {
-            "args": {
-                "attribute": "",
-                "index": "",
-                "subject": "karate"
-            },
-            "type": "click"
-        },
-        {
-            "args": {
-                "attribute": "",
-                "index": "2",
                 "subject": "Issues"
             },
             "type": "click"
@@ -69,8 +17,16 @@
         {
             "args": {
                 "attribute": "",
-                "index": "",
-                "subject": "Labels"
+                "index": "2",
+                "subject": "Issue"
+            },
+            "type": "click"
+        },
+        {
+            "args": {
+                "attribute": "id",
+                "index": "2",
+                "subject": "issue"
             },
             "type": "click"
         },
@@ -78,15 +34,64 @@
             "args": {
                 "attribute": "",
                 "index": "",
-                "subject": "bug"
+                "input": "random",
+                "subject": "search"
             },
-            "type": "click"
+            "type": "type"
+        },
+        {
+            "args": {
+                "attribute": "",
+                "index": "2",
+                "input": "random",
+                "subject": "search"
+            },
+            "type": "type"
+        },
+        {
+            "args": {
+                "attribute": "class",
+                "index": "in",
+                "input": "random",
+                "subject": "#search"
+            },
+            "type": "type"
         },
         {
             "args": {
                 "subject": "10"
             },
             "type": "wait"
+        },
+        {
+            "args": {
+                "attribute": "",
+                "index": "",
+                "subject": "Issue"
+            },
+            "type": "hover"
+        },
+        {
+            "args": {
+                "subject": "localStorage.setItem('random-key', 'false');"
+            },
+            "type": "execjs"
+        },
+        {
+            "args": {
+                "attribute": "id",
+                "index": "2",
+                "subject": "issue"
+            },
+            "type": "click if present"
+        },
+        {
+            "args": {
+                "attribute": "name",
+                "index": "2",
+                "subject": "issue"
+            },
+            "type": "wait until"
         }
     ]
 }

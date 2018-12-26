@@ -60,7 +60,7 @@ json convert_action_to_json(struct AFH_ACTION* action) {
         */
         action->args[i] = std::regex_replace(action->args[i], std::regex("\""), "");
 
-        if (action->type == CLICK_ACTION || action->type == HOVER_ACTION) {
+        if (action->type == CLICK_ACTION || action->type == HOVER_ACTION || action->type == CLICK_IF_PRESENT_ACTION || action->type == WAIT_UNTIL) {
             switch(i) {
                 case CLICK_INDEX_INDEX :
                     j[ARGS][INDEX] = action->args[i];

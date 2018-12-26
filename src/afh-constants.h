@@ -10,6 +10,8 @@
 #define OPEN_ACTION "open"
 #define EXECJS_ACTION "execjs"
 #define WAIT_ACTION "wait"
+#define CLICK_IF_PRESENT_ACTION "click if present"
+#define WAIT_UNTIL "wait until"
 
 // Common args for all/most of the actions
 #define SUBJECT "subject"
