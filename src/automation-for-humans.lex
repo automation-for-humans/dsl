@@ -14,6 +14,8 @@ L   [a-zA-Z_]
 	#include "lex-utils.h"
 %}
 
+%option noyywrap
+
 %%
 open                        { saveStringToken(); return(OPEN); }
 click                       { saveStringToken(); return(CLICK); }
