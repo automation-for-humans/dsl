@@ -1,4 +1,4 @@
-#define TYPE "type"
+#define ACTION_TYPE "type"
 #define ARGS "args"
 #define COMMANDS "commands"
 #define EMPTY_STRING ""

@@ -51,7 +51,7 @@ struct AFH_ACTION_LIST* add_to_action_list(AFH_ACTION_LIST* action_list, struct 
 */
 json convert_action_to_json(struct AFH_ACTION* action) {
     json j;
-    j[TYPE] = action->type;
+    j[ACTION_TYPE] = action->type;
     j[ARGS] = json::object();
 
     for (int i = 0; i < action->n_args; i++) {
