@@ -16,6 +16,7 @@ using json = nlohmann::json;
 extern int yylex();
 extern int yyparse();
 extern FILE* yyin;
+extern int line_number;
 
 void yyerror(char* s);
 
@@ -71,7 +72,7 @@ int main(int argc, char** argv) {
 }
 
 void yyerror(char *s) {
-    cerr<<"EEK, parse error!  Message: "    <<s<<endl;
+    cerr<<"EEK, parse error in line "<<line_number<<"!  Message: "    <<s<<endl;
 
     /*
     * Halt as soon as we get a parse error.

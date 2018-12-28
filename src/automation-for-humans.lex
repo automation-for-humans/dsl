@@ -33,6 +33,8 @@ until                       { saveStringToken(); return(UNTIL); }
 \"(\\.|[^\\"])*\"           { saveStringToken(); return(STRING_LITERAL); }
 {D}+                        { saveStringToken(); return(INTEGER_CONSTANT); }
 (st|nd|rd|th)               { saveStringToken(); return(INTEGER_SPECIFIER); }
+(#.*\n)                     { /* ignore comments */ line_number++; }
+(\n)                        { line_number++; }
 [ \t\v\n\f]                 { /* ignore whitespace */ }
 <<EOF>>                     { static int eof_detected = 0; return eof_detected++ ? 0 : END_OF_FILE; }
 .                           { /* ignore bad characters */ }

@@ -1,3 +1,4 @@
+# This is a comment
 open "https://github.com/"
 click on "Issues"
 click on 2nd "Issue"
@@ -6,7 +7,8 @@ type "random" in "search"
 type "random" in 2nd "search"
 type "random" in 2nd "#search" "class"
 wait for "10"
-hover on "Issue"
+hover on "Issue" # This is also a comment
 execjs "localStorage.setItem('random-key', 'false');"
+# Return of comments
 click if present on 2nd "issue" "id"
 wait until 2nd "issue" "name"

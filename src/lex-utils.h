@@ -17,6 +17,8 @@ using namespace std;
 * TODO: Can we externalise it from the YACC file.
 */
 
+int line_number = 1;
+
 /*
 * Saves a String token so that it can be used by the parser.
 */
