@@ -12,3 +12,5 @@ execjs "localStorage.setItem('random-key', 'false');"
 # Return of comments
 click if present on 2nd "issue" "id"
 wait until 2nd "issue" "name"
+assert "abc"
+assert "abc" in "value"

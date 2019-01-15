@@ -29,6 +29,7 @@ for                         { saveStringToken(); return(FOR); }
 if                          { saveStringToken(); return(IF); }
 present                     { saveStringToken(); return(PRESENT); }
 until                       { saveStringToken(); return(UNTIL); }
+assert                      { saveStringToken(); return(ASSERT); }
 
 \"(\\.|[^\\"])*\"           { saveStringToken(); return(STRING_LITERAL); }
 {D}+                        { saveStringToken(); return(INTEGER_CONSTANT); }

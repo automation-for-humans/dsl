@@ -93,6 +93,17 @@ json convert_action_to_json(struct AFH_ACTION* action) {
             }
         } else if (action->type == OPEN_ACTION || action->type == WAIT_ACTION || action->type == EXECJS_ACTION) {
             j[ARGS][SUBJECT] = action->args[i];
+        } else if (action->type == ASSERT_ACTION) {
+            switch(i) {
+                case ASSERT_SUBJECT_INDEX :
+                    j[ARGS][SUBJECT] = action->args[i];
+                    break;
+                case ASSERT_ATTRIBUTE_INDEX :
+                    j[ARGS][ATTRIBUTE] = action->args[i];
+                    break;
+                default :
+                    break;
+            }
         }
     }
     return j;

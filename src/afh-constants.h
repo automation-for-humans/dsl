@@ -12,6 +12,7 @@
 #define WAIT_ACTION "wait"
 #define CLICK_IF_PRESENT_ACTION "click if present"
 #define WAIT_UNTIL "wait until"
+#define ASSERT_ACTION "assert"
 
 // Common args for all/most of the actions
 #define SUBJECT "subject"
@@ -42,5 +43,9 @@
 
 // indices for "wait" action
 #define WAIT_SUBJECT_INDEX 0
+
+// indices for "assert" action
+#define ASSERT_SUBJECT_INDEX 0
+#define ASSERT_ATTRIBUTE_INDEX 1
 
 #define MAX_ARGS 10

@@ -92,6 +92,20 @@
                 "subject": "issue"
             },
             "type": "wait until"
+        },
+        {
+            "args": {
+                "attribute": "",
+                "subject": "abc"
+            },
+            "type": "assert"
+        },
+        {
+            "args": {
+                "attribute": "value",
+                "subject": "abc"
+            },
+            "type": "assert"
         }
     ]
 }
