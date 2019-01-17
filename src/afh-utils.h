@@ -104,6 +104,8 @@ json convert_action_to_json(struct AFH_ACTION* action) {
                 default :
                     break;
             }
+            /* We don't allow searching by index in asserts. */
+            j[ARGS][INDEX] = EMPTY_STRING;
         }
     }
     return j;
