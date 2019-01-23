@@ -3,6 +3,11 @@ all:
 	bison --defines=src/y.tab.h -o src/y.tab.cpp src/automation-for-humans.yacc
 	flex -o src/lex.yy.cpp src/automation-for-humans.lex
 	g++ -w -std=c++11 -Iinclude/ -ll src/y.tab.cpp src/lex.yy.cpp -o bin/afh-parser
+win:
+	mkdir -p bin/
+	win_bison --defines=src/y.tab.h -o src/y.tab.cpp src/automation-for-humans.yacc
+	win_flex -o src/lex.yy.cpp src/automation-for-humans.lex
+	g++ -w -std=c++11 -Iinclude/ -L"C:\GnuWin32\lib" src/y.tab.cpp src/lex.yy.cpp -o bin/afh-parser
 alpine:
 	mkdir -p bin/
 	bison --defines=src/y.tab.h -o src/y.tab.cpp src/automation-for-humans.yacc
