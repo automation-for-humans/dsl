@@ -71,7 +71,6 @@ make validate src=sample-inputs/public-sites/github-nav-demo
         </td>
     </tr>
 </table>
-
 ## Advanced Keywords Use
 
 <table>
@@ -85,6 +84,13 @@ make validate src=sample-inputs/public-sites/github-nav-demo
         <td>Used to click on an element with id "issues-id"</td>
         <td>
             <a href="#advanced-keywords-use"><code>click on "issues-id" "id"</code>
+        </td>
+    </tr>
+        <tr>
+        <td><a href="#advanced-keywords-use"><code>shortcut</code></a></td>
+        <td>Keyboard shortcut</td>
+        <td>
+            <a href="#advanced-keywords-use"><code>shortcut "command+v" in "Search"</code>
         </td>
     </tr>
     <tr>

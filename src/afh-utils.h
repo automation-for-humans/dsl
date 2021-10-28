@@ -74,6 +74,23 @@ json convert_action_to_json(struct AFH_ACTION* action) {
                 default :
                     break;
             }
+        }else if(action->type == SHORTCUT_ACTION){
+             switch(i) {
+                case SHORTCUT_COMMAND_INDEX :
+                    j[ARGS][COMMAND] = action->args[i];
+                    break;
+                case SHORTCUT_SUBJECT_INDEX :
+                    j[ARGS][SUBJECT] = action->args[i];
+                    break;
+                case SHORTCUT_ATTRIBUTE_INDEX :
+                    j[ARGS][ATTRIBUTE] = action->args[i];
+                    break;
+                case SHORTCUT_INDEX_INDEX :
+                    j[ARGS][INDEX] = action->args[i];
+                    break;
+                default :
+                    break;
+             }
         } else if (action->type == TYPE_ACTION) {
             switch(i) {
                 case TYPE_INDEX_INDEX :
