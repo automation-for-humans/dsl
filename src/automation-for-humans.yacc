@@ -2,7 +2,7 @@
     #include "yacc-utils.h"
 %}
 
-%token OPEN CLICK TYPE WAIT HOVER EXECJS ON IN FOR IF PRESENT UNTIL ASSERT
+%token OPEN CLICK TYPE WAIT HOVER EXECJS ON IN FOR IF PRESENT UNTIL ASSERT SHORTCUT
 %token STRING_LITERAL INTEGER_CONSTANT WHITESPACE END_OF_FILE INTEGER_SPECIFIER
 %start translation_unit
 
@@ -13,9 +13,9 @@
     struct AFH_ACTION_LIST* actionList;
 }
 
-%type<stringValue> OPEN CLICK TYPE WAIT HOVER EXECJS ON IN FOR IF PRESENT UNTIL ASSERT
+%type<stringValue> OPEN CLICK TYPE WAIT HOVER EXECJS ON IN FOR IF PRESENT UNTIL ASSERT SHORTCUT
 %type<stringValue> STRING_LITERAL INTEGER_CONSTANT INTEGER_SPECIFIER
-%type<afhAction> action click_action hover_action open_action type_action execjs wait_action click_if_present_action wait_until_action assert_action
+%type<afhAction> action click_action hover_action open_action type_action execjs wait_action click_if_present_action wait_until_action assert_action shortcut_action
 %type<actionList> translation_unit
 
 %%
@@ -29,6 +29,10 @@ action
     | click_if_present_action { $$ = $1; }
     | wait_until_action { $$ = $1; }
     | assert_action { $$ = $1; }
+    | shortcut_action { $$ = $1; }
+    ;
+shortcut_action
+    : SHORTCUT STRING_LITERAL IN STRING_LITERAL { $$ = acceptAction(5, $1, EMPTY_STRING, $2, $4, EMPTY_STRING); }
     ;
 click_action
     : CLICK ON STRING_LITERAL { $$ = acceptAction(4, $1, EMPTY_STRING, $3, EMPTY_STRING); }

@@ -13,16 +13,24 @@
 #define CLICK_IF_PRESENT_ACTION "click if present"
 #define WAIT_UNTIL "wait until"
 #define ASSERT_ACTION "assert"
+#define SHORTCUT_ACTION "shortcut"
 
 // Common args for all/most of the actions
 #define SUBJECT "subject"
 #define INDEX "index"
 #define ATTRIBUTE "attribute"
+#define COMMAND "command"
 
 // args for type action
 #define USER_INPUT "input"
 
 // For different action types, teh args will mean different things.
+
+// indices for "shortcut" action
+#define SHORTCUT_INDEX_INDEX 0
+#define SHORTCUT_COMMAND_INDEX 1
+#define SHORTCUT_SUBJECT_INDEX 2
+#define SHORTCUT_ATTRIBUTE_INDEX 3
 
 // indices for "click" action
 #define CLICK_INDEX_INDEX 0

@@ -30,6 +30,7 @@ if                          { saveStringToken(); return(IF); }
 present                     { saveStringToken(); return(PRESENT); }
 until                       { saveStringToken(); return(UNTIL); }
 assert                      { saveStringToken(); return(ASSERT); }
+shortcut                    { saveStringToken(); return(SHORTCUT); }
 
 \"(\\.|[^\\"])*\"           { saveStringToken(); return(STRING_LITERAL); }
 {D}+                        { saveStringToken(); return(INTEGER_CONSTANT); }
